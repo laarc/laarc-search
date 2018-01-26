@@ -18,7 +18,7 @@ set :use_sudo, false
 
 # repository
 set :local_repository, "."
-set :repository, "git@github.com:algolia/hn-search.git"
+set :repository, "git@github.com:LambdaNews/ln-search.git"
 set :scm, :git
 set :deploy_via, :remote_cache
 set :branch, "master"

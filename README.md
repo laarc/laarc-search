@@ -12,8 +12,8 @@ We *love* pull-requests :)
 
 ```sh
 # clone the repository
-git clone https://github.com/algolia/hn-search
-cd hn-search
+git clone https://github.com/LambdaNews/ln-search
+cd ln-search
 
 # install dependencies
 bundle install

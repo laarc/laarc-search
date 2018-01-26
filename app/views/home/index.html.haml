@@ -3,11 +3,11 @@
 - site_title = title = description = twitter_url = facebook_url = ''
 - if request.path.start_with?('/story/') && (id = request.path.split('/')[2].to_i) > 0
   - item = Item.find(id)
-  - site_title = "#{item.title} - HN Search powered by Algolia"
+  - site_title = "#{item.title} - LN Search powered by Algolia"
   = content_for :head do
     %meta{name: "robots", content: "noindex,follow"}
   - if item.text.blank?
-    - title = 'HN Search powered by Algolia'
+    - title = 'LN Search powered by Algolia'
     - description = item.title
   - else
     - title = item.title
@@ -15,7 +15,7 @@
   - facebook_url = "http://drcs9k8uelb9s.cloudfront.net/#{item.id}-600x315.png"
   - twitter_url = "http://drcs9k8uelb9s.cloudfront.net/#{item.id}-240x180.png"
 - else
-  - site_title = title = 'HN Search powered by Algolia'
+  - site_title = title = 'LN Search powered by Algolia'
   - description = 'Hacker News Search, millions articles and comments at your fingertips.'
   - twitter_url = facebook_url = asset_url('yc-logo.png')
 
@@ -31,7 +31,7 @@
 
   %meta{property: "st:title", content: title }
   %meta{property: "og:url", content: url }
-  %meta{property: "og:site_name", content: 'HN Search' }
+  %meta{property: "og:site_name", content: 'LN Search' }
   %meta{property: "og:title", content: title }
   %meta{property: "og:description", content: description }
   %meta{property: "og:image", content: facebook_url }

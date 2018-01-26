@@ -2,17 +2,17 @@
 %html{'ng-app' => 'HNSearch'}
   %head{'ng-controller' => 'HeadCtrl'}
     %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, minimal-ui", :name => "viewport"}
-    %title= content_for(:title) ? yield(:title) : 'HN Search powered by Algolia'
+    %title= content_for(:title) ? yield(:title) : 'LN Search powered by Algolia'
     %meta{:content => "Hacker News Search, millions articles and comments at your fingertips.", :name => "description"}
     %base{:href=> root_url}
     %link{:rel => "shortcut icon", :href=> asset_path('favicon.ico')}
-    %link{:href => '/opensearch.xml', :rel => 'search', :title => 'HN Search', :type => 'application/opensearchdescription+xml'}
+    %link{:href => '/opensearch.xml', :rel => 'search', :title => 'LN Search', :type => 'application/opensearchdescription+xml'}
     = stylesheet_link_tag "application", :media => "all"
     = stylesheet_link_tag "themes/default", :media => "all", 'ng-if' => 'settings.style !== "experimental"'
     = stylesheet_link_tag "themes/experimental", :media => "all", 'ng-if' => 'settings.style === "experimental"'
     / = csrf_meta_tags
-    = auto_discovery_link_tag(:rss, {controller: "home", action: "front_page"}, { title: 'HN Front page'})
-    = auto_discovery_link_tag(:atom, {controller: "home", action: "latest", format: 'atom'}, { title: 'Latest HN items'})
+    = auto_discovery_link_tag(:rss, {controller: "home", action: "front_page"}, { title: 'LN Front page'})
+    = auto_discovery_link_tag(:atom, {controller: "home", action: "latest", format: 'atom'}, { title: 'Latest LN items'})
     = yield(:head)
 
     :javascript

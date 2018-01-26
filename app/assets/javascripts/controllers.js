@@ -226,14 +226,14 @@ angular.module('HNSearch.controllers', ['ngSanitize', 'ngDropdowns', 'pasvaz.bin
   $scope.pageTitle = function() {
     switch ($scope.state) {
     case undefined: case '': return $scope.settings.style === 'default' ? '' : 'All';
-    case "ask-hn": return "Ask HN";
-    case "show-hn": return "Show HN";
+    case "ask-hn": return "Ask";
+    case "show-hn": return "Show";
     case "jobs": return "Jobs";
     case "polls": return "Polls";
     case "hot": return "Hot";
     case "starred": return "Starred";
     case "user": return $scope.settings.login;
-    default: return "HN Search";
+    default: return "LN Search";
     }
   }
 
