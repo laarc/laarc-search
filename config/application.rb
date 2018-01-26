@@ -25,5 +25,10 @@ module Hnsearch
 
     config.middleware.use ActionDispatch::Flash
     config.middleware.delete ActiveRecord::QueryCache
+
+    config.action_dispatch.default_headers = {
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+    }
   end
 end
