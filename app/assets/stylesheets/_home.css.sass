@@ -47,7 +47,7 @@ body
     cursor: pointer
     &.active
       font-weight: bold
-      border-bottom: solid 2px $orange
+      border-bottom: solid 2px $topcolor
 
 //SEARCHBOX
 .search-wrapper
@@ -57,7 +57,7 @@ body
     margin-top: 3px
   .icon-search
     +position(absolute, 8px null null 14px)
-    color: $orange
+    color: $topcolor
     font-size: 24px
   .item-input-wrapper
     display: inline-block
@@ -168,7 +168,7 @@ body
         font-size: 18px
         color: $lightGray
         &:hover
-          color: $orange
+          color: $topcolor
   .wrap-dd-menu
     li a
       font-size: 13px
@@ -202,9 +202,9 @@ body
         line-height: 20px
         border-radius: 50%
       &.radio:checked ~ label:before
-        box-shadow: inset 0 0 0 6px white, inset 0 0 0 10px $orange
+        box-shadow: inset 0 0 0 6px white, inset 0 0 0 10px $topcolor
       &.radio:focus ~ label:before
-        box-shadow: inset 0 0 0 6px white, inset 0 0 0 10px $orange
+        box-shadow: inset 0 0 0 6px white, inset 0 0 0 10px $topcolor
   h2
     display: inline-block
     margin-top: 1em
@@ -270,7 +270,7 @@ body
     font-size: 12px
   .starred
     i
-      color: $orange
+      color: $topcolor
   [class^="icon-"], [class*=" icon-"]
     color: $lightGray
 .date, .comments
@@ -368,9 +368,9 @@ a.date
       &:before
         +triangle(18px, lighten(lightGray,5%), left)
     &:hover:not(.no-comments)
-      background-color: lighten($orange,5%)
+      background-color: lighten($topcolor,5%)
       &:before
-        +triangle(18px, lighten($orange,5%), left)
+        +triangle(18px, lighten($topcolor,5%), left)
   a
     color: white
     display: block
@@ -380,7 +380,7 @@ a.date
       font-size: 18px
     &:hover
       i
-        color: $orange
+        color: $topcolor
 ul.list-item-comments
   padding: 0 50px 20px
   color: $darkGray
@@ -425,8 +425,8 @@ ul.list-item-comments
       outline: none
     &.active
       button
-        border-color: $orange
-        color: $orange
+        border-color: $topcolor
+        color: $topcolor
 
 //FOOTER
 footer
