@@ -20,7 +20,7 @@ Hnsearch::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = true
+  config.serve_static_files = true
   config.action_controller.asset_host = "d3nb9u6x572n0.cloudfront.net"
 
   # Compress JavaScripts and CSS.
