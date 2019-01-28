@@ -5,7 +5,7 @@ ruby '2.6.0'
 
 gem 'rails', '~> 4.2.7'
 gem 'sass-rails'
-gem 'uglifier', '>= 1.3.0'
+#gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'figaro'
@@ -13,7 +13,7 @@ gem 'haml-rails'
 gem 'bitters'
 gem 'bourbon'
 gem 'neat'
-gem 'therubyracer', '0.12.2'
+#gem 'therubyracer', '0.12.2'
 gem 'hogan_assets'
 gem 'jquery-cookie-rails'
 gem 'algoliasearch-rails', '~> 1.19.1'
@@ -77,6 +77,6 @@ group :development, :test do
 end
 group :test do
   gem 'capybara'
-  gem 'minitest-spec-rails'
-  gem 'minitest-wscolor'
+  #gem 'minitest-spec-rails'
+  #gem 'minitest-wscolor'
 end

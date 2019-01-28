@@ -918,7 +918,6 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.6)
     jwt (2.1.0)
-    libv8 (3.16.14.19)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -942,11 +941,6 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
-    minitest-spec-rails (5.5.0)
-      minitest (~> 5.0)
-      rails (>= 4.1)
-    minitest-wscolor (0.0.3)
-      minitest (>= 2.3.1)
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -1021,7 +1015,6 @@ GEM
       ffi
     rbnacl-libsodium (1.0.16)
       rbnacl (>= 3.0.1)
-    ref (2.0.0)
     regexp_parser (1.3.0)
     request_store (1.4.1)
       rack (>= 1.4)
@@ -1084,9 +1077,6 @@ GEM
     statsd-ruby (1.4.0)
     temple (0.8.0)
     terminal-notifier-guard (1.7.0)
-    therubyracer (0.12.2)
-      libv8 (~> 3.16.14.0)
-      ref
     thin (1.7.2)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -1101,8 +1091,6 @@ GEM
       tilt (>= 1.4, < 3)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.20)
-      execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
@@ -1151,8 +1139,6 @@ DEPENDENCIES
   jquery-cookie-rails
   jquery-rails
   lograge
-  minitest-spec-rails
-  minitest-wscolor
   mysql2
   neat
   open_uri_redirections
@@ -1175,10 +1161,8 @@ DEPENDENCIES
   sqlite3
   statsd-ruby
   terminal-notifier-guard
-  therubyracer (= 0.12.2)
   thin
   turnout
-  uglifier (>= 1.3.0)
   whenever
 
 RUBY VERSION
