@@ -50,7 +50,7 @@ angular.module('HNSearch.services', ['algoliasearch', 'ngStorage', 'angular-goog
     var settings = _loadSettings();
 
     // Algolia settings
-    var algoliaConfig = { appID: 'UJ5WYC0L7X', apiKey: '8ece23f8eb07cd25d40262a1764599b1' }; // FIXME
+    var algoliaConfig = { appID: 'DMX77CEFW8', apiKey: '0e7e64491733b975977b6d1229a3620b' }; // FIXME
 
     settingsService.client = algolia.Client(algoliaConfig.appID, algoliaConfig.apiKey);
     settingsService.indexSortedByPopularity = settingsService.client.initIndex('Item_production');
@@ -264,7 +264,7 @@ angular.module('HNSearch.services', ['algoliasearch', 'ngStorage', 'angular-goog
         var deferred = $q.defer();
         if (this.items.length === 0 || this.refreshedAt < now - 60000) {
             var self = this;
-            $http.get('https://hacker-news.firebaseio.com/v0/topstories.json').then(function(result) {
+            $http.get('https://laarrc.firebaseio.com/v0/topstories.json').then(function(result) {
                 self.refreshedAt = now;
                 self.items = result.data;
                 deferred.resolve(self.items);
