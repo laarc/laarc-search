@@ -200,7 +200,7 @@ angular.module('LaarcSearch.controllers', ['ngSanitize', 'ngDropdowns', 'pasvaz.
     }
 
     NProgress.start();
-    $http.get($location.protocol() + '://hn.algolia.com/api/v1/items/' + id).success(function(data) {
+    $http.get($location.protocol() + '://search.laarc.io/api/v1/items/' + id).success(function(data) {
       NProgress.done();
 
       $scope.story[id] = { comments: data };
@@ -226,14 +226,14 @@ angular.module('LaarcSearch.controllers', ['ngSanitize', 'ngDropdowns', 'pasvaz.
   $scope.pageTitle = function() {
     switch ($scope.state) {
     case undefined: case '': return $scope.settings.style === 'default' ? '' : 'All';
-    case "ask-hn": return "Ask";
-    case "show-hn": return "Show";
+    case "ask-laarc": return "Ask";
+    case "show-laarc": return "Show";
     case "jobs": return "Jobs";
     case "polls": return "Polls";
     case "hot": return "Hot";
     case "starred": return "Starred";
     case "user": return $scope.settings.login;
-    default: return "LN Search";
+    default: return "Laarc Search";
     }
   }
 
@@ -373,7 +373,7 @@ angular.module('LaarcSearch.controllers', ['ngSanitize', 'ngDropdowns', 'pasvaz.
   ];
   $scope.shareItem = function(selected, hit) {
     var url = hit ? $location.protocol() + '://' + $location.host() + "/story/" + hit.objectID + "/" + $scope.friendly(hit.title) : window.location.href;
-    var title = (hit ? hit.title + ' - ' : ($scope.query ? 'I just searched for "' + $scope.query + '" on Hacker News - ' : '')) + 'Hacker News Search';
+    var title = (hit ? hit.title + ' - ' : ($scope.query ? 'I just searched for "' + $scope.query + '" on Laarc - ' : '')) + 'Laarc Search';
     switch (selected.share){
       case 'twitter':
         window.open("https://twitter.com/share?url=" + escape(url) + "&text=" + title, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
@@ -620,7 +620,7 @@ angular.module('LaarcSearch.controllers', ['ngSanitize', 'ngDropdowns', 'pasvaz.
   };
 }])
 
-.directive('hnsearch', ['search', 'settings', '$location', function(search, settings, $location) {
+.directive('laarcsearch', ['search', 'settings', '$location', function(search, settings, $location) {
   return {
     restrict: 'E',
     replace: true,

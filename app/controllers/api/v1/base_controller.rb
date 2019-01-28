@@ -45,7 +45,7 @@ module Api
           Algolia::Protocol::HEADER_API_KEY           => api_key,
           Algolia::Protocol::HEADER_APP_ID            => application_id,
           "Content-Type"                              => "application/json; charset=utf-8",
-          "User-Agent"                                => "Algolia for Ruby (hnsearch)"
+          "User-Agent"                                => "Algolia for Ruby (laarcsearch)"
         }
       end
 

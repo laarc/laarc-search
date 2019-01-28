@@ -78,7 +78,7 @@ var app = angular.module('LaarcSearch', [
     .state('root.api', {
       url: '/api',
       views: {
-        'main-header': { template: '<h1>LN Search API</h1>' },
+        'main-header': { template: '<h1>Laarc Search API</h1>' },
         'main-content': { templateUrl: 'api.html' }
       }
     })
