@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   end
 
   def self.from_api!(id)
-    h = Firebase::Client.new(ENV['HN_API_URL']).get("/v0/user/#{id}").body
+    h = Firebase::Client.new(ENV['SITE_API_URL']).get("/v0/user/#{id}").body
     u = User.find_or_initialize_by(username: h['id'])
     u.created_at = Time.at(h['created'])
     u.karma = h['karma']

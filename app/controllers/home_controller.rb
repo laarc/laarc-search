@@ -24,14 +24,14 @@ class HomeController < ApplicationController
   def front_page
     @stories = Item.where(front_page: true).all
     @updated_at = DateTime.now
-    @title = "HN's home page"
+    @title = "Laarc's home page"
     feed
   end
 
   def latest
     @stories = Item.where(item_type_cd: Item.story).where(deleted: false).order('id DESC').first(20).reverse
     @updated_at = @stories[0].created_at
-    @title = "Last HN items"
+    @title = "Last Laarc items"
     feed
   end
 

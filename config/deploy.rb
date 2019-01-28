@@ -1,24 +1,24 @@
 require "bundler/capistrano"
 
 set :default_environment, {
-  'GIT_SSH' => '/home/hnsearch/.ssh/hn_git_ssh.sh'
+  'GIT_SSH' => '/home/laarcsearch/.ssh/laarc_git_ssh.sh'
 }
 
 default_run_options[:pty] = true
 
 # servers
-server 'hnsearch-1.algolia.net', :app, :web, :db, :cron, primary: true
-server 'hnsearch-2.algolia.net', :app, :web
+server 'laarcsearch-1.algolia.net', :app, :web, :db, :cron, primary: true
+server 'laarcsearch-2.algolia.net', :app, :web
 
 # application
-set :application, "HNSearch"
-set :deploy_to, "/var/www/hnsearch"
-set :user, 'hnsearch'
+set :application, "LaarcSearch"
+set :deploy_to, "/var/www/laarcsearch"
+set :user, 'laarcsearch'
 set :use_sudo, false
 
 # repository
 set :local_repository, "."
-set :repository, "git@github.com:LambdaNews/ln-search.git"
+set :repository, "git@github.com:laarc/laarc-search.git"
 set :scm, :git
 set :deploy_via, :remote_cache
 set :branch, "master"
@@ -62,17 +62,17 @@ after "deploy:update", "bluepill:quit", "bluepill:start"
 namespace :bluepill do
   desc "Stop processes that bluepill is monitoring and quit bluepill"
   task :quit, :roles => [:cron] do
-    run "cd #{current_path} && ./bin/bluepill hnsearch --no-privileged stop"
-    run "cd #{current_path} && ./bin/bluepill hnsearch --no-privileged quit"
+    run "cd #{current_path} && ./bin/bluepill laarcsearch --no-privileged stop"
+    run "cd #{current_path} && ./bin/bluepill laarcsearch --no-privileged quit"
   end
 
   desc "Load bluepill configuration and start it"
   task :start, :roles => [:cron] do
-    run "cd #{current_path} && ./bin/bluepill --no-privileged load /var/www/hnsearch/current/config/production.pill"
+    run "cd #{current_path} && ./bin/bluepill --no-privileged load /var/www/laarcsearch/current/config/production.pill"
   end
 
   desc "Prints bluepills monitored processes statuses"
   task :status, :roles => [:cron] do
-    run "cd #{current_path} && ./bin/bluepill hnsearch --no-privileged status"
+    run "cd #{current_path} && ./bin/bluepill laarcsearch --no-privileged status"
   end
 end

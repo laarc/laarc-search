@@ -1,9 +1,9 @@
-var app = angular.module('HNSearch', [
+var app = angular.module('LaarcSearch', [
   'ui.router',
   'ngRoute',
   'templates',
-  'HNSearch.controllers',
-  'HNSearch.services',
+  'LaarcSearch.controllers',
+  'LaarcSearch.services',
   'angular-google-analytics'
 ])
 
@@ -131,9 +131,9 @@ var app = angular.module('HNSearch', [
     ;
 
     // GA
-    AnalyticsProvider.setAccount('UA-32446386-3');
-    AnalyticsProvider.useCrossDomainLinker(true);
-    AnalyticsProvider.setCrossLinkDomains(['new-hn.algolia.com', 'hn.algolia.com']);
+    AnalyticsProvider.setAccount('UA-133379619-2');
+    // AnalyticsProvider.useCrossDomainLinker(true);
+    // AnalyticsProvider.setCrossLinkDomains(['new-hn.algolia.com', 'hn.algolia.com']);
     AnalyticsProvider.trackPages(true);
     AnalyticsProvider.setPageEvent('$stateChangeSuccess');
 }])

@@ -17,8 +17,8 @@ class Item < ActiveRecord::Base
   belongs_to :story, class_name: "Item", foreign_key: "story_id"
   has_many :story_comments, -> { where('item_type_cd = ?', Item.comment) }, class_name: "Item", foreign_key: "story_id"
 
-  SHOW_HN_RX = /^show hn\b/i
-  ASK_HN_RX = /^ask hn\b/i
+  SHOW_LAARC_RX = /^show laarc\b/i
+  ASK_LAARC_RX = /^ask laarc\b/i
 
   include AlgoliaSearch
   algoliasearch per_environment: true, auto_index: false, if: :live? do
@@ -32,10 +32,10 @@ class Item < ActiveRecord::Base
       t = [item_type, "author_#{author}", "story_#{story_id || id}"]
       if item_type_cd == Item.story
         case title
-        when SHOW_HN_RX
-          t << 'show_hn'
-        when ASK_HN_RX
-          t << 'ask_hn'
+        when SHOW_LAARC_RX
+          t << 'show_laarc'
+        when ASK_LAARC_RX
+          t << 'ask_laarc'
         end
       end
       t << 'front_page' if front_page
@@ -82,7 +82,7 @@ class Item < ActiveRecord::Base
 
   def crawl_thumbnail!
     s3 = Aws::S3::Resource.new
-    bucket = s3.bucket('hnsearch')
+    bucket = s3.bucket('laarcsearch')
     obj = bucket.object("#{id}.png")
     return true if url.blank? || obj.exists?
     begin
@@ -118,7 +118,7 @@ class Item < ActiveRecord::Base
   end
 
   def self.from_api!(id)
-    h = Firebase::Client.new(ENV['HN_API_URL']).get("/v0/item/#{id}").body
+    h = Firebase::Client.new(ENV['SITE_API_URL']).get("/v0/item/#{id}").body
     return false if h.nil? || h['time'].nil?
     item = Item.find_or_initialize_by(id: h['id'])
     raise "Unknown type: #{h['type']}" if h['type'].blank?

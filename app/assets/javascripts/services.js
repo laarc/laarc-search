@@ -1,4 +1,4 @@
-angular.module('HNSearch.services', ['algoliasearch', 'ngStorage', 'angular-google-analytics'])
+angular.module('LaarcSearch.services', ['algoliasearch', 'ngStorage', 'angular-google-analytics'])
 
 .factory('settings', ['$location', 'algolia', '$localStorage', 'Analytics', function($location, algolia, $localStorage, Analytics) {
     var settingsService = {};
@@ -171,11 +171,11 @@ angular.module('HNSearch.services', ['algoliasearch', 'ngStorage', 'angular-goog
 
         // story type
         switch (page) {
-        case 'ask-hn':
-            this.params.tagFilters.push('ask_hn');
+        case 'ask-laarc':
+            this.params.tagFilters.push('ask_laarc');
             break;
-        case 'show-hn':
-            this.params.tagFilters.push('show_hn');
+        case 'show-laarc':
+            this.params.tagFilters.push('show_laarc');
             break;
         case 'jobs':
             this.params.tagFilters.push('job');
@@ -366,7 +366,7 @@ angular.module('HNSearch.services', ['algoliasearch', 'ngStorage', 'angular-goog
         // work-around =\\" escaping bug (6c92ae092359647c04804876139516163d0567de)
         str = str.replace(/=\\"/g, '="');
 
-        // XSS (seems HN is not stripping all of them)
+        // XSS (seems Laarc is not stripping all of them)
         str = $('<div />').text(str).html()
             // keep some tags like <p>, <pre>, <em>, <strong>, <code> & <i>
             .replace(/&lt;(\/?)(p|pre|code|em|strong|i)&gt;/g, '<$1$2>')

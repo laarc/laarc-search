@@ -1,7 +1,7 @@
-HN Search powered by Algolia
+Laarc Search powered by Algolia
 ==================
 
-This is the Rails 4 application providing [HN Search](http://hn.algolia.com). It's mainly based on [angular.js](https://github.com/angular/angular.js), [algoliasearch-rails](https://github.com/algolia/algoliasearch-rails) and uses [wkhtmltoimage](https://code.google.com/p/wkhtmltopdf/) to crawl+render thumbnails.
+This is the Rails 4 application providing [Laarc Search](https://search.laarc.io). It's mainly based on [angular.js](https://github.com/angular/angular.js), [algoliasearch-rails](https://github.com/algolia/algoliasearch-rails) and uses [wkhtmltoimage](https://code.google.com/p/wkhtmltopdf/) to crawl+render thumbnails.
 
 Development/Contributions
 -------------
@@ -12,8 +12,8 @@ We *love* pull-requests :)
 
 ```sh
 # clone the repository
-git clone https://github.com/LambdaNews/ln-search
-cd ln-search
+git clone https://github.com/laarc/laarc-search
+cd laarc-search
 
 # install dependencies
 bundle install
@@ -65,11 +65,11 @@ class Item < ActiveRecord::Base
       [item_type, "author_#{author}", "story_#{story_id}"]
     end
 
-    # use associated number of HN points to sort results (last sort criteria)
+    # use associated number of points to sort results (last sort criteria)
     customRanking ['desc(points)', 'desc(num_comments)']
 
     # controls the way results are sorted sorting on the following 4 criteria (one after another)
-    # I removed the 'exact' match critera (improve 1-words query relevance, doesn't fit HNSearch needs)
+    # I removed the 'exact' match critera (improve 1-words query relevance, doesn't fit LaarcSearch needs)
     ranking ['typo', 'proximity', 'attribute', 'custom']
 
     # google+, $1.5M raises, C#: we love you

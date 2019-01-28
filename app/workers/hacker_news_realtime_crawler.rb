@@ -12,7 +12,7 @@ class HackerNewsRealtimeCrawler
 
   def crawler
     EM.run do
-      @source = EventMachine::EventSource.new("#{ENV['HN_API_URL']}/v0/updates.json", headers = {"Accept" => "text/event-stream"})
+      @source = EventMachine::EventSource.new("#{ENV['SITE_API_URL']}/v0/updates.json", headers = {"Accept" => "text/event-stream"})
       @source.on "keep-alive" do |unused|
         # just a keep-alive, do nothing. unused message is null
       end
@@ -60,7 +60,7 @@ class HackerNewsRealtimeCrawler
     last_hit_at = DateTime.parse(Algolia::Index.new("Item_#{Rails.env}_sort_date").search('', hitsPerPage: 1)['hits'].first['created_at']) rescue nil
     status = last_hit_at.nil? || last_hit_at < 1.hour.ago ? '0' : '1'
 
-    @statsd.set('hn-search.indexing', status) rescue nil # not fatal
+    @statsd.set('laarc-search.indexing', status) rescue nil # not fatal
   end
 
   def self.refresh_home_page!
@@ -85,7 +85,7 @@ class HackerNewsRealtimeCrawler
       puts "[#{DateTime.now}] Refreshing user=#{id}"
       User.delay.from_api!(id)
     end
-    @statsd.set('hn-search.crawling', 1) rescue nil # not fatal
+    @statsd.set('laarc-search.crawling', 1) rescue nil # not fatal
   end
 
 end

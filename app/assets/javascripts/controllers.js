@@ -1,4 +1,4 @@
-angular.module('HNSearch.controllers', ['ngSanitize', 'ngDropdowns', 'pasvaz.bindonce'])
+angular.module('LaarcSearch.controllers', ['ngSanitize', 'ngDropdowns', 'pasvaz.bindonce'])
 
 .run(['settings', function(settings) {
   $('body').attr('rel', settings.get().style);
