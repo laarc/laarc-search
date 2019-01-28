@@ -792,7 +792,6 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    mysql (2.9.1)
     mysql2 (0.4.10)
     neat (2.1.0)
       sass (~> 3.4)
@@ -995,7 +994,6 @@ DEPENDENCIES
   lograge
   minitest-spec-rails
   minitest-wscolor
-  mysql
   mysql2
   neat
   open_uri_redirections
@@ -1025,7 +1023,7 @@ DEPENDENCIES
   whenever
 
 RUBY VERSION
-   ruby 2.2.7p470
+   ruby 2.6.0p0
 
 BUNDLED WITH
    1.16.1

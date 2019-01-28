@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.2.7'
+source 'https://rubygems.org'
+ruby '2.6.0'
 
 gem 'rails', '~> 4.2.7'
 gem 'sass-rails'
@@ -68,7 +69,6 @@ group :development do
   gem 'terminal-notifier-guard'
 end
 group :production do
-  gem 'mysql'
   gem 'mysql2'
   gem "lograge"
 end
