@@ -67,7 +67,7 @@ class HackerNewsRealtimeCrawler
     old_front_pages = Item.where(front_page: true).select(:id).map(&:id)
     Item.where(id: old_front_pages).update_all front_page: false
 
-    new_front_pages = SimpleRSS.parse(Net::HTTP.get(URI.parse('https://news.ycombinator.com/rss'))).items.map { |item| item[:comments].split('=').last.to_i }
+    new_front_pages = SimpleRSS.parse(Net::HTTP.get(URI.parse('https://www.laarc.io/rss'))).items.map { |item| item[:comments].split('=').last.to_i }
     Item.where(id: new_front_pages).update_all front_page: true
 
     Item.where(id: (old_front_pages + new_front_pages)).reindex!
