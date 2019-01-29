@@ -83,6 +83,4 @@ Hnsearch::Application.configure do
   config.lograge.custom_options = lambda do |event|
     { time: event.time }
   end
-  
-  config.secret_key_base = ENV["SECRET_KEY_BASE"]
 end
